@@ -33,21 +33,35 @@ export default {
 </script>
 
 <template>
-    <form class="box">
-        <div class="field">
-            <label class="label">People</label>
-            <div class="control">
-                <input class="input" type="number" v-model="people" />
+    <div class="columns pb-3">
+        <div class="column">
+            <div class="field">
+                <div class="control has-icons-left">
+                    <input class="input is-large"
+                           type="number"
+                           v-model="people" />
+
+                    <span class="icon is-left">
+                        <font-awesome-icon icon="fa-solid fa-people-carry-box" />
+                    </span>
+                </div>
             </div>
         </div>
 
-        <div class="field">
-            <label class="label">Market Value</label>
-            <div class="control">
-                <input class="input" type="number" v-model="marketValue" />
+        <div class="column">
+            <div class="field">
+                <div class="control has-icons-left">
+                    <input class="input is-large"
+                           type="number"
+                           v-model="marketValue" />
+
+                    <span class="icon is-left">
+                        <font-awesome-icon icon="fa-solid fa-coins" />
+                    </span>
+                </div>
             </div>
         </div>
-    </form>
+    </div>
 
     <div class="level">
         <div class="level-item has-text-centered">
