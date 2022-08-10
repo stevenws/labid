@@ -64,46 +64,42 @@ export default {
     </div>
 
     <div class="level">
-        <div class="level-item has-text-centered">
+        <div v-for="(value, name) in {mad: mad, careful: careful, safe: safe, even: even, kind: kind}"
+             class="level-item has-text-centered">
             <div>
-                <p class="heading">mad</p>
-                <p class="title">{{ mad.toLocaleString() }}</p>
-            </div>
-        </div>
+                <p class="heading">{{ name }}</p>
+                <p class="title">{{ value.toLocaleString() }}</p>
+                <ol>
+                    <li v-for="n in 10"
+                        :class="{'has-text-success': n % 2 == 0, 'has-text-danger': n % 2 == 1}">
 
-        <div class="level-item has-text-centered">
-            <div>
-                <p class="heading">careful</p>
-                <p class="title">{{ careful.toLocaleString() }}</p>
-            </div>
-        </div>
-
-        <div class="level-item has-text-centered">
-            <div>
-                <p class="heading">safe</p>
-                <p class="title">{{ safe.toLocaleString() }}</p>
-            </div>
-        </div>
-
-        <div class="level-item has-text-centered">
-            <div>
-                <p class="heading">even</p>
-                <p class="title">{{ even.toLocaleString() }}</p>
-            </div>
-        </div>
-
-        <div class="level-item has-text-centered">
-            <div>
-                <p class="heading">kind</p>
-                <p class="title">{{ kind.toLocaleString() }}</p>
+                        {{ (value / Math.pow(1.1, n)).toLocaleString() }}
+                    </li>
+                </ol>
             </div>
         </div>
     </div>
 </template>
 
 <style scoped>
-.be
+ol
 {
-    font-size: 200%;
+    counter-reset: ol;
+}
+
+ol li
+{
+    counter-increment: ol;
+    list-style: none;
+}
+
+ol li:before
+{
+    content: counters(ol, '.') ' ';
+    font-size: 0.75em;
+    font-family: monospace;
+
+    position: relative;
+    top: -1px;
 }
 </style>
