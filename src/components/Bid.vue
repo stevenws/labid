@@ -10,7 +10,7 @@ export default {
     computed: {
         mad()
         {
-            return (this.people - 1) / (this.people + 1/10) * 19/22 * this.marketValue;
+            return (this.people - 1) / this.people * 19/20 / 1.1 * this.marketValue;
         },
         careful()
         {
